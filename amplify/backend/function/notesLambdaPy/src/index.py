@@ -60,3 +60,12 @@ def modify_note(id):
   )
   return jsonify('successful')
 
+
+@app.route(ROUTE+'/<id>', methods=['DELETE'])
+def delete_note(id):
+  db.delete_item(
+    TableName=TABLE,
+    Key={'id': {'S': id}}
+    )
+  return jsonify(message="deleted")
+
