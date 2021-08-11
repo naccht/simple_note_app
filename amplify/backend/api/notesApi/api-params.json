@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/allnotes",
+      "lambdaFunction": "notesLambdaPy",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/allnotes"
+    }
+  ],
+  "resourceName": "notesApi",
+  "apiName": "notesApi",
+  "functionArns": [
+    {
+      "lambdaFunction": "notesLambdaPy"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-noteapp-dev-211547-authRole",
+    "unAuthRoleName": "amplify-noteapp-dev-211547-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "notesLambdaPy",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

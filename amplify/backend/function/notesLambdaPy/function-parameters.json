@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "notesDB": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
