@@ -7,6 +7,15 @@ import { useEffect, useState } from "react";
 Amplify.configure(awsconfig);
 API.configure(awsconfig);
 
+async function deleteNote(id) {
+  var text = "Are you sure you want to delete the note? This action canote be reversed!"
+  if (window.confirm(text)) {
+    await API.del('notesApi', '/allnotes/'+id)
+    window.location.reload()
+  }
+}
+
+
 const ParentThatFetches = () => {
   const [data, updateData] = useState();
   useEffect(() => {
@@ -16,6 +25,10 @@ const ParentThatFetches = () => {
     }
     getData();
   }, []);
+
+  if (data === undefined){
+    return <a1>Loading Notes...</a1>;
+  }
   console.warn(data)
   return (
     <div className="container m-t-20">
@@ -34,12 +47,12 @@ const ParentThatFetches = () => {
                                 </div>  
                               </div>
                               <footer className="card-footer">
-                              <Link to={`note/${note.id.S}`} className="card-footer-item">
+                              <Link to={`note/${note.id.S}?title=${note.title.S}&content=${note.content.S}`} className="card-footer-item">
                                   Edit
                                 </Link>
-                                <a href="#" className="card-footer-item">
+                                <button onClick={()=>deleteNote(note.id.S)} className="card-footer-item remove">
                                   Delete
-                                </a>
+                                </button>
                               </footer>
                             </div>
                         </div>
@@ -50,4 +63,4 @@ const ParentThatFetches = () => {
             </div>
   )
 }
-export default ParentThatFetches;
+export default ParentThatFetches; 

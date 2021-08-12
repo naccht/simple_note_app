@@ -38,3 +38,7 @@
 .card button:hover {
   color: #363636;
 }
+button.remove {
+  color: #f8f8f8;
+  background-color: #9e0d0d;
+}

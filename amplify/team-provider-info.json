@@ -15,7 +15,7 @@
       "function": {
         "notesLambdaPy": {
           "deploymentBucketName": "amplify-noteapp-dev-211547-deployment",
-          "s3Key": "amplify-builds/notesLambdaPy-78454e61725263446d6f-build.zip"
+          "s3Key": "amplify-builds/notesLambdaPy-62584855682b4a505536-build.zip"
         }
       }
     }
